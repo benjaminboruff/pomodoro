@@ -1,0 +1,8 @@
+.periods {
+  font-size: 1.5em;
+  margin: 10px 0 0;
+}
+
+.periods > span {
+  margin: 0 10px 0;
+}
