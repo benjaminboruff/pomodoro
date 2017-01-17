@@ -77,14 +77,14 @@ class Timer extends Component {
     if(!this.state.started) {
       if(this.state.takeABreak || (!this.state.started && !this.state.takeABreak)) {
         if(e.target.value === "inc-break") {
-          console.log("add to break!!!!");
+          //console.log("add to break!!!!");
           this.breakTime += 1;
           this.setState(
             {
               durationBreak: moment.duration(this.breakTime, 'minutes')
             });
         } else if(e.target.value === "dec-break") {
-          console.log("dec break!!!!");
+          //console.log("dec break!!!!");
           this.breakTime = this.breakTime > 1 ? this.breakTime - 1 : 1;
           this.setState(
             {
@@ -94,14 +94,14 @@ class Timer extends Component {
       }
 
       if(e.target.value === "inc-session") {
-        console.log("add to session!!!!");
+        //console.log("add to session!!!!");
         this.sessionTime += 1;
         this.setState(
           {
             durationSession: moment.duration(this.sessionTime, 'minutes')
           });
       } else if(e.target.value === "dec-session") {
-        console.log("dec session!!!!");
+        //console.log("dec session!!!!");
         this.sessionTime = this.sessionTime > 1 ? this.sessionTime - 1 : 1;
         this.setState(
           {
