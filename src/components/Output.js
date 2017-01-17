@@ -1,26 +1,47 @@
 import React from 'react';
 import 'react-mdl/extra/material.css';
 import 'react-mdl/extra/material.js';
-import { Button } from 'react-mdl';
+import { Button, Card, CardText, CardActions, CardTitle } from 'react-mdl';
+import './Output.css';
+import SetSession from './SetSession';
+import SetBreak from './SetBreak';
 
 function Output(props) {
   if(props.takeABreak) {
     return (
-      <div>
-        <h2> Output: </h2>
-        <h3> Break { props.breakMin }:{ props.breakSec < 10 ? "0" + props.breakSec : props.breakSec } </h3>
-        <h1>Take a break!</h1>
-        <Button raised colored onClick={props.handleStartStop}>Start/Stop</Button>
-      </div>
+      <Card className="output" shadow={3}>
+        <CardTitle className="cardtitle">
+          <SetSession sessionTime={props.sessionTime}
+                      handlePeriodAdjust={props.handlePeriodAdjust}  />
+        </CardTitle>
+        <CardText>
+          <h3>{ props.breakMin }:{ props.breakSec < 10 ? "0" + props.breakSec : props.breakSec } </h3>
+          <h2 id="breaktext">Break</h2>
+          <Button raised colored onClick={props.handleStartStop}>Start/Stop</Button>
+        </CardText>
+        <CardActions>
+          <SetBreak breakTime={props.breakTime}
+                    handlePeriodAdjust={props.handlePeriodAdjust}/>
+        </CardActions>
+      </Card>
     );
   } else {
     return (
-      <div >
-        <h2> Output: </h2>
-        {/*<h3> Break time  { props.breakMin }:{ props.breakSec < 10 ? "0" + props.breakSec : props.breakSec } </h3>*/}
-        <h3> Session time { props.sessionMin }:{ props.sessionSec < 10 ? "0" + props.sessionSec : props.sessionSec } </h3>
-        <Button raised colored onClick={props.handleStartStop}>Start/Stop</Button>
-      </div>
+      <Card className="output" shadow={3}>
+        <CardTitle className="cardtitle">
+          <SetSession sessionTime={props.sessionTime}
+                      handlePeriodAdjust={props.handlePeriodAdjust}  />
+        </CardTitle>
+        <CardText>
+          <h2 id="sessiontext">Session</h2>
+          <h3>{ props.sessionMin }:{ props.sessionSec < 10 ? "0" + props.sessionSec : props.sessionSec } </h3>
+          <Button id="startstop" raised colored onClick={props.handleStartStop}>Start/Stop</Button>
+        </CardText>
+        <CardActions>
+          <SetBreak breakTime={props.breakTime}
+                    handlePeriodAdjust={props.handlePeriodAdjust}/>
+        </CardActions>
+      </Card>
     );
   }
 }

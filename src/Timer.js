@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import moment from 'moment';
+import { Layout, Content } from 'react-mdl';
 import './Timer.css';
-import SetPeriods from './components/SetPeriods';
 import Output from './components/Output';
 import alarmMpeg from  './sounds/fire.m4a';
 import alarmOgg from './sounds/fire.ogg';
@@ -149,18 +149,19 @@ class Timer extends Component {
     return (
       <div className="App">
         <audio ref="alarm_bell"></audio>
-        <div className="App-header">
-          <h2>Pomodoro timer</h2>
-        </div>
-        <SetPeriods breakTime={this.breakTime}
+        <Layout className="App">
+          <Content style={{margin: '200px 0 0'}}>
+            <Output breakMin={this.state.durationBreak.get('minutes')}
+                    breakSec={this.state.durationBreak.get('seconds')}
+                    sessionMin={this.state.durationSession.get('minutes')}
+                    sessionSec={this.state.durationSession.get('seconds')}
+                    takeABreak={this.state.takeABreak}
+                    handleStartStop={this.handleStartStop}
                     sessionTime={this.sessionTime}
-                    handlePeriodAdjust={this.handlePeriodAdjust}  />
-        <Output breakMin={this.state.durationBreak.get('minutes')}
-                breakSec={this.state.durationBreak.get('seconds')}
-                sessionMin={this.state.durationSession.get('minutes')}
-                sessionSec={this.state.durationSession.get('seconds')}
-                takeABreak={this.state.takeABreak}
-                handleStartStop={this.handleStartStop} />
+                    handlePeriodAdjust={this.handlePeriodAdjust}
+                    breakTime={this.breakTime} />
+          </Content>
+        </Layout>
       </div>
     );
   }

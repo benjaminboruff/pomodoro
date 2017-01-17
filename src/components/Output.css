@@ -1,0 +1,27 @@
+.output {
+  margin: auto;
+}
+
+.output h2 {
+  margin: 5px 75px 5px;
+}
+
+.output h3 {
+  margin: 10px 110px 0;
+}
+
+#startstop {
+  margin: 5px 100px 5px;
+}
+
+.cardtitle {
+  margin: auto;
+}
+
+#breaktext {
+  color: red;
+}
+
+#sessiontext {
+  color: green;
+}
