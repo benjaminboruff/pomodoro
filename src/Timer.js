@@ -4,6 +4,8 @@ import moment from 'moment';
 import './Timer.css';
 import SetPeriods from './components/SetPeriods';
 import Output from './components/Output';
+import alarmMpeg from  './sounds/fire.m4a';
+import alarmOgg from './sounds/fire.ogg';
 
 class Timer extends Component {
   constructor(props) {
@@ -29,9 +31,9 @@ class Timer extends Component {
       this.alarm = ReactDOM.findDOMNode(this.refs.alarm_bell);
       this.alarm.volume = 0.3;
       if (this.alarm.canPlayType("audio/mpeg")) {
-        this.alarm.setAttribute("src","/sounds/fire.m4a");
+        this.alarm.setAttribute("src", alarmMpeg);
       } else {
-        this.alarm.setAttribute("src","/sounds/fire.ogg");
+        this.alarm.setAttribute("src", alarmOgg);
       }
   }
 
