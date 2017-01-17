@@ -9,14 +9,14 @@ function SetPeriods(props) {
     <div>
       <div className="periods">
         <h2>Periods:</h2>
-        <Button value="inc-break" raised colored ripple onClick={props.handlePeriods}>+</Button>
-        <span>Break: { props.break }</span>
-        <Button raised colored onClick={props.handlePeriods}>-</Button>
+        <Button value="inc-break" raised colored onClick={props.handlePeriods}>+</Button>
+        <span>Break: { props.breakTime } min</span>
+        <Button value="dec-break" raised colored onClick={props.handlePeriods}>-</Button>
       </div>
       <div className="periods">
-        <Button raised colored onClick={props.handlePeriods}>+</Button>
-        <span>Session: { props.session }</span>
-        <Button raised colored onClick={props.handlePeriods}>-</Button>
+        <Button value="inc-session" raised colored onClick={props.handlePeriods}>+</Button>
+        <span>Session: { props.sessionTime } min</span>
+        <Button value="dec-session" raised colored onClick={props.handlePeriods}>-</Button>
       </div>
     </div>
   );
