@@ -83,15 +83,13 @@ class Timer extends Component {
             {
               durationBreak: moment.duration(this.breakTime, 'minutes')
             });
-          //this.resetTimer();
         } else if(e.target.value === "dec-break") {
           console.log("dec break!!!!");
-          this.breakTime -= 1;
+          this.breakTime = this.breakTime > 1 ? this.breakTime - 1 : 1;
           this.setState(
             {
               durationBreak: moment.duration(this.breakTime, 'minutes')
             });
-          //this.resetTimer();
         }
       }
 
@@ -102,30 +100,16 @@ class Timer extends Component {
           {
             durationSession: moment.duration(this.sessionTime, 'minutes')
           });
-        //this.resetTimer();
       } else if(e.target.value === "dec-session") {
         console.log("dec session!!!!");
-        this.sessionTime -= 1;
+        this.sessionTime = this.sessionTime > 1 ? this.sessionTime - 1 : 1;
         this.setState(
           {
             durationSession: moment.duration(this.sessionTime, 'minutes')
           });
-        //this.resetTimer();
       }
 
     }
-  }
-
-  resetTimer() {
-    clearInterval(this.breakTimerID);
-    clearInterval(this.sessionTimerID);
-    this.setState(
-      {
-        durationSession: moment.duration(this.sessionTime, 'minutes'),
-        durationBreak: moment.duration(this.breakTime, 'minutes'),
-        takeABreak: false
-      });
-    this.sessionTimerID = setInterval(() => this.countDownSession(), 1000);
   }
 
   handleStartStop() {
