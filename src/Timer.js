@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import ReactDOM from 'react-dom';
 import moment from 'moment';
 import './Timer.css';
 import SetPeriods from './components/SetPeriods';
@@ -24,14 +25,27 @@ class Timer extends Component {
   }
 
   componentDidMount() {
-      //this.sessionTimerID = setInterval(() => this.countDownSession(), 1000);
-      //console.log("Moment says: " + this.state.durationSession.asMinutes() + " minutes");
+      // set up audio element for alarm bell
+      this.alarm = ReactDOM.findDOMNode(this.refs.alarm_bell);
+      this.alarm.volume = 0.3;
+      if (this.alarm.canPlayType("audio/mpeg")) {
+        this.alarm.setAttribute("src","/sounds/fire.m4a");
+      } else {
+        this.alarm.setAttribute("src","/sounds/fire.ogg");
+      }
   }
 
   componentWillUnmount() {
         clearInterval(this.sessionTimerID);
         clearInterval(this.breakTimerID);
     }
+
+  playAlarm(delay) {
+    this.alarm.loop = true;
+    this.alarm.load();
+    this.alarm.play();
+    setTimeout(() => {this.alarm.loop = false}, delay * 1000);
+  }
 
   countDownSession() {
       if(this.state.durationSession.asSeconds() > 0) {
@@ -47,7 +61,8 @@ class Timer extends Component {
               durationSession: moment.duration(this.sessionTime, 'minutes'),
               takeABreak: true
             });
-          console.log("Break time!");
+          this.playAlarm(2);
+          //console.log("Break time!");
         }
       //console.log("Session: " + this.state.durationSession.get('minutes'));
       //console.log("Session: " + this.state.durationSession.get('seconds'));
@@ -67,6 +82,7 @@ class Timer extends Component {
               durationBreak: moment.duration(this.breakTime, 'minutes'),
               takeABreak: false
             });
+          this.playAlarm(2);
         }
       //console.log("Break: " + this.state.durationBreak.get('minutes'));
       //console.log("Break: " + this.state.durationBreak.get('seconds'));
@@ -130,6 +146,7 @@ class Timer extends Component {
   render() {
     return (
       <div className="App">
+        <audio ref="alarm_bell"></audio>
         <div className="App-header">
           <h2>Pomodoro timer</h2>
         </div>
