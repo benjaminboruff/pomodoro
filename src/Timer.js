@@ -150,7 +150,7 @@ class Timer extends Component {
       <div className="App">
         <audio ref="alarm_bell"></audio>
         <Layout className="App">
-          <Content style={{margin: '200px 0 0'}}>
+          <Content id="maincontent">
             <Output breakMin={this.state.durationBreak.get('minutes')}
                     breakSec={this.state.durationBreak.get('seconds')}
                     sessionMin={this.state.durationSession.get('minutes')}

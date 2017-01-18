@@ -1,8 +1,19 @@
-/*.periods {
-  font-size: 1.5em;
-  margin: 10px 0 0;
-}*/
+.setbreak {
+  font-size: 1.2em;
+}
 
-.periods > span {
-  margin: 0 17px 0;
+.setbreak > span {
+  margin: 0 22px 0;
+}
+
+.break-button {
+  background-color: #e53935;
+  color: #f5f5f5;
+  font-weight: 700;
+}
+
+.break-button:hover {
+  background-color: #d32f2f;
+  color: #f5f5f5;
+  font-weight: 700;
 }

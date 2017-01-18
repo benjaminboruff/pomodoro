@@ -6,10 +6,10 @@ import "./SetBreak.css";
 
 function SetBreak(props) {
   return (
-    <div className="periods">
-      <Button value="dec-break" raised colored onClick={props.handlePeriodAdjust}>-</Button>
+    <div className="setbreak">
+      <Button className="break-button" value="dec-break" raised onClick={props.handlePeriodAdjust}>{'\uFF0D'}</Button>
         <span>Break: { props.breakTime } min</span>
-      <Button value="inc-break" raised colored onClick={props.handlePeriodAdjust}>+</Button>
+      <Button className="break-button" value="inc-break" raised onClick={props.handlePeriodAdjust}>{'\uFF0B'}</Button>
     </div>
   );
 }

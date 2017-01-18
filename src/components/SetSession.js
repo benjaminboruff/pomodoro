@@ -7,9 +7,9 @@ import "./SetSession.css";
 function SetSession(props) {
   return (
     <div className="setsession">
-      <Button value="dec-session" raised colored onClick={props.handlePeriodAdjust}>-</Button>
+      <Button className="session-button" value="dec-session" raised onClick={props.handlePeriodAdjust}>{'\uFF0D'}</Button>
         <span>Session: { props.sessionTime } min</span>
-      <Button value="inc-session" raised colored onClick={props.handlePeriodAdjust}>+</Button>
+      <Button className="session-button" value="inc-session" raised onClick={props.handlePeriodAdjust}>{'\uFF0B'}</Button>
     </div>
   );
 }

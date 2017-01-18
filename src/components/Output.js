@@ -17,9 +17,9 @@ function Output(props) {
         <CardText>
           <h3>{ props.breakMin }:{ props.breakSec < 10 ? "0" + props.breakSec : props.breakSec } </h3>
           <h2 id="breaktext">Break</h2>
-          <Button raised colored onClick={props.handleStartStop}>Start/Stop</Button>
+          <Button id="startstopbutton" raised onClick={props.handleStartStop}>Start/Stop</Button>
         </CardText>
-        <CardActions>
+        <CardActions className="card-actions">
           <SetBreak breakTime={props.breakTime}
                     handlePeriodAdjust={props.handlePeriodAdjust}/>
         </CardActions>
@@ -32,12 +32,12 @@ function Output(props) {
           <SetSession sessionTime={props.sessionTime}
                       handlePeriodAdjust={props.handlePeriodAdjust}  />
         </CardTitle>
-        <CardText>
+        <CardText id="cardtext">
           <h2 id="sessiontext">Session</h2>
           <h3>{ props.sessionMin }:{ props.sessionSec < 10 ? "0" + props.sessionSec : props.sessionSec } </h3>
-          <Button id="startstop" raised colored onClick={props.handleStartStop}>Start/Stop</Button>
+          <Button id="startstop-button" raised onClick={props.handleStartStop}>Start/Stop</Button>
         </CardText>
-        <CardActions>
+        <CardActions className="card-actions">
           <SetBreak breakTime={props.breakTime}
                     handlePeriodAdjust={props.handlePeriodAdjust}/>
         </CardActions>
