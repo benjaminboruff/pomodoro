@@ -160,6 +160,12 @@ class Timer extends Component {
                     sessionTime={this.sessionTime}
                     handlePeriodAdjust={this.handlePeriodAdjust}
                     breakTime={this.breakTime} />
+            <div id="copy">
+              Designed and coded by
+              <a href="http://stackoverflow.com/story/benjaminboruff">
+                 <span>Benjamin H Boruff</span>
+              </a> &copy;2017
+            </div>
           </Content>
         </Layout>
       </div>
