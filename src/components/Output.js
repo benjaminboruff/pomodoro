@@ -10,14 +10,14 @@ function Output(props) {
   if(props.takeABreak) {
     return (
       <Card className="output" shadow={3}>
-        <CardTitle className="cardtitle">
+        <CardTitle className="card-title">
           <SetSession sessionTime={props.sessionTime}
                       handlePeriodAdjust={props.handlePeriodAdjust}  />
         </CardTitle>
-        <CardText>
-          <h3>{ props.breakMin }:{ props.breakSec < 10 ? "0" + props.breakSec : props.breakSec } </h3>
+        <CardText id="break-background">
           <h2 id="breaktext">Break</h2>
-          <Button id="startstopbutton" raised onClick={props.handleStartStop}>Start/Stop</Button>
+          <h3>{ props.breakMin }:{ props.breakSec < 10 ? "0" + props.breakSec : props.breakSec } </h3>
+          <Button id="startstop-button" raised onClick={props.handleStartStop}>Start/Stop</Button>
         </CardText>
         <CardActions className="card-actions">
           <SetBreak breakTime={props.breakTime}
@@ -28,11 +28,11 @@ function Output(props) {
   } else {
     return (
       <Card className="output" shadow={3}>
-        <CardTitle className="cardtitle">
+        <CardTitle className="card-title">
           <SetSession sessionTime={props.sessionTime}
                       handlePeriodAdjust={props.handlePeriodAdjust}  />
         </CardTitle>
-        <CardText id="cardtext">
+        <CardText id="session-background">
           <h2 id="sessiontext">Session</h2>
           <h3>{ props.sessionMin }:{ props.sessionSec < 10 ? "0" + props.sessionSec : props.sessionSec } </h3>
           <Button id="startstop-button" raised onClick={props.handleStartStop}>Start/Stop</Button>

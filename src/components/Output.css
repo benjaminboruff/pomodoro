@@ -18,8 +18,8 @@
   font-weight: 600;
 }
 
-.cardtitle {
-  margin: auto;
+.card-title {
+  margin-left: 15px;
 }
 
 #breaktext {
@@ -30,12 +30,15 @@
   color: #43a047;
 }
 
-#cardtext {
-  background-color: #E0E0E0;
+#break-background {
+  background-color: #ffcdd2;
+}
+
+#session-background {
+  background-color: #C8E6C9;
 }
 
 .card-actions {
   margin-top: 5px;
-  margin-bottom: 6px;
-  /*background-color: #ffcdd2;*/
+  margin-bottom: 10px;
 }

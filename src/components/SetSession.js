@@ -8,7 +8,7 @@ function SetSession(props) {
   return (
     <div className="setsession">
       <FABButton className="session-button" value="dec-session" raised onClick={props.handlePeriodAdjust}>{'\uFF0D'}</FABButton>
-        <span>Session: { props.sessionTime } min</span>
+        <span>Session: { props.sessionTime < 10 ? "0" + props.sessionTime : props.sessionTime  } min</span>
       <FABButton className="session-button" value="inc-session" raised onClick={props.handlePeriodAdjust}>{'\uFF0B'}</FABButton>
     </div>
   );

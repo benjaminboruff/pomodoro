@@ -8,7 +8,7 @@ function SetBreak(props) {
   return (
     <div className="setbreak">
       <FABButton className="break-button" value="dec-break" raised onClick={props.handlePeriodAdjust}>{'\uFF0D'}</FABButton>
-        <span>Break: { props.breakTime } min</span>
+        <span>Break: { props.breakTime < 10 ? "0" + props.breakTime : props.breakTime } min</span>
       <FABButton className="break-button" value="inc-break" raised onClick={props.handlePeriodAdjust}>{'\uFF0B'}</FABButton>
     </div>
   );
