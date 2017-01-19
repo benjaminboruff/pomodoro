@@ -1,8 +1,8 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import SetPeriods from './SetPeriods';
+import SetBreak from './SetBreak';
 
 // smoke
 it('should render without error', () => {
-  shallow(<SetPeriods />);
+  shallow(<SetBreak />);
 });
