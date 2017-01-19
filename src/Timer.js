@@ -45,7 +45,7 @@ class Timer extends Component {
   playAlarm(delay) {
     this.alarm.loop = true;
     this.alarm.load();
-    this.alarm.play();
+    setTimeout(() => {this.alarm.play()}, 0);
     setTimeout(() => {this.alarm.loop = false}, delay * 1000);
   }
 
